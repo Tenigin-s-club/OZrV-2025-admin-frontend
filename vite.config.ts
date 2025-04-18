@@ -20,9 +20,9 @@ export default defineConfig({
         "apple-touch-icon.png",
       ],
       manifest: {
-        name: "ТНС энерго – заседания совета",
-        short_name: "ТНС-заседания",
-        description: "Приложение для проведения заседаний совета директоров",
+        name: "Мой Сириус - панель аминистратора",
+        short_name: "Мой Сириус админ",
+        description: "админ панель для приложения Мой Сириус",
         theme_color: "#ffffff",
         background_color: "#ffffff",
         display: "standalone",

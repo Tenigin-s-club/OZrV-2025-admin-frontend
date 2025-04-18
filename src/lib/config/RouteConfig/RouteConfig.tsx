@@ -5,8 +5,7 @@ import AuthPageAsync from "@/pages/AuthPage/AuthPage.async";
 import ErrorPage from "@/pages/ErrorPage/ErrorPage";
 import RegisterPageAsync from "@/pages/RegisterPage/RegisterPage.async";
 import { ProtectedRoute } from "@/components/shared/ProtectedRoute";
-import CreateMeetingPageAsync from "@/pages/CreateMeetingPage/CreateMeetingPage.async";
-import UsersPageAsync from "@/pages/UsersPage/UsersPage.async";
+import UsersPageAsync from "@/pages/UserPage/UserPage.async";
 
 import AnalyticsPageAsync from "@/pages/AnalyticsPage/AnalyticsPage.async";
 import UsersTableAdminPage from "@/pages/UsersTablePage/UsersTablePage";
@@ -44,10 +43,6 @@ export const appRoutersConfig = createBrowserRouter([
       {
         path: "/users/:id",
         element: <UsersPageAsync />,
-      },
-      {
-        path: "/analytics/create",
-        element: <CreateMeetingPageAsync />,
       },
     ],
   },
