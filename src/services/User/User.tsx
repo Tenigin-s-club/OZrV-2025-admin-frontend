@@ -2,8 +2,8 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { User } from "./types";
 
 const initialState: User = {
+  id: "",
   fio: "",
-  role: ["admin"],
   email: "",
 };
 

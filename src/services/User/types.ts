@@ -1,11 +1,5 @@
 export interface User {
+  id: string;
   fio: string;
   email: string;
-  role: (
-    | "member_union"
-    | "member_comitet"
-    | "admin"
-    | "secretar"
-    | "corporative_secretar"
-  )[];
 }

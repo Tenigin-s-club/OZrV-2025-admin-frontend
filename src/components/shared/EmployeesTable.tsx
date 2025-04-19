@@ -23,12 +23,12 @@ import { Input } from "@/components/ui/input";
 import ExportEmployeesButton from "./ExportEmployeesButton";
 
 import { ChartColumnBig } from "lucide-react";
-import { UnVerifiedUser, VerifiedUser } from "@/services/Employees/types";
 import { useNavigate } from "react-router-dom";
+import { User } from "@/services/User/types";
 
 interface Props<TValue> {
-  columns: ColumnDef<UnVerifiedUser | VerifiedUser, TValue>[];
-  data: UnVerifiedUser[] | VerifiedUser[];
+  columns: ColumnDef<User, TValue>[];
+  data: User[];
   isRequest: boolean;
 }
 
