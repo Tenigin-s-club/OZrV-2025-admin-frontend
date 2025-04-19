@@ -90,7 +90,7 @@ function EmployeesTable<TValue>({ columns, data }: Props<TValue>) {
           </TableHeader>
           <TableBody>
             {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
+              table.getRowModel().rows.map((row, id) => (
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
@@ -107,7 +107,7 @@ function EmployeesTable<TValue>({ columns, data }: Props<TValue>) {
                   <TableCell className="flex items-center justify-evenly gap-2">
                     <ChartColumnBig
                       color="#111111"
-                      onClick={() => navigate("/users/:id")}
+                      onClick={() => navigate(`/users/${data[id]?.id}`)}
                     />
                   </TableCell>
                 </TableRow>

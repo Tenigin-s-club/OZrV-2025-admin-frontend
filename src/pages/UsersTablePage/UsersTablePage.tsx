@@ -3,8 +3,6 @@ import Container from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { ArrowUpDown } from "lucide-react";
 import { ColumnDef } from "@tanstack/react-table";
-
-import { useGetVerifiedEmployees } from "@/services/Employees/Employees";
 import Loader from "@/components/shared/Loader/Loader";
 import { useGetUsers } from "@/services/Employees/Employees.ts";
 
