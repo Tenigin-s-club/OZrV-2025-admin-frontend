@@ -6,25 +6,15 @@ import { ColumnDef } from "@tanstack/react-table";
 
 import { useGetVerifiedEmployees } from "@/services/Employees/Employees";
 import Loader from "@/components/shared/Loader/Loader";
-import { roles, rolesToText } from "@/lib/helpers/roleToText";
+import { useGetUsers } from "@/services/Employees/Employees.ts";
 
-export interface UnverifiedUsers {
+export interface User {
   id: string;
   email: string;
   fio: string;
 }
 
-export interface VerifiedUsers extends UnverifiedUsers {
-  role: (
-    | "member_union"
-    | "member_comitet"
-    | "admin"
-    | "secretar"
-    | "corporative_secretar"
-  )[];
-}
-
-const columnsUnVer: ColumnDef<UnverifiedUsers>[] = [
+const usersColumns: ColumnDef<User>[] = [
   {
     accessorKey: "fio",
     header: ({ column }) => {
@@ -54,26 +44,9 @@ const columnsUnVer: ColumnDef<UnverifiedUsers>[] = [
     },
   },
 ];
-const columnsVer: ColumnDef<UnverifiedUsers>[] = [
-  ...columnsUnVer,
-  {
-    accessorKey: "roles",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Роли
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      );
-    },
-  },
-];
 
 const UsersTableAdminPage = () => {
-  const { data: verifiedEmployees, isLoading } = useGetVerifiedEmployees();
+  const { data, isLoading } = useGetUsers();
   if (isLoading) {
     return <Loader />;
   }
@@ -81,10 +54,9 @@ const UsersTableAdminPage = () => {
     <Container>
       <EmployeesTable
         isRequest={false}
-        columns={columnsVer}
-        data={(verifiedEmployees || []).map((el) => ({
+        columns={usersColumns}
+        data={(data || []).map((el) => ({
           ...el,
-          roles: rolesToText(el.roles as unknown as (keyof typeof roles)[]),
         }))}
       />
     </Container>
