@@ -48,6 +48,16 @@ const TopBar = () => {
               Аналитика
             </Button>
           </li>
+          <li>
+            <Button
+              variant={pathname === "/users" || pathname.includes("/users") ? "default" : "secondary"}
+              className="min-w-[150px] w-1/6"
+              onClick={() => navigate("/users")}
+            >
+              <Presentation />
+              Пользователи
+            </Button>
+          </li>
         </ul>
         <Button
           variant="secondary"
@@ -89,7 +99,7 @@ const TopBar = () => {
               </DropdownMenuItem>
               <DropdownMenuItem
                 className="cursor-pointer"
-                onClick={() => navigate(`/employees`)}
+                onClick={() => navigate(`/users`)}
               >
                 <Users /> Пользователи
               </DropdownMenuItem>

@@ -26,6 +26,15 @@ export interface RequestQuestion {
   materials: FormData;
 }
 
+export interface Event{
+  id: string;
+  title: string;
+  description: string;
+  image_url: string;
+  date_event: string;
+}
+
+
 export type MeetingStatus = "future" | "completed" | "active";
 
 export interface MeetingStatistic {
