@@ -64,77 +64,82 @@ const CreateEventForm = () => {
     }
   }
   return (
-    <div className="w-96 rounded-lg border bg-card text-card-foreground shadow-sm flex flex-col space-y-1.5 p-6">
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 mb-4">
-          <Title size="sm" text={"Создать событие"} />
-          <p>
-            Создайте событие, введя название, ссылку на фото, описание и дату!
-          </p>
-          <FormField
-            control={form.control}
-            name="title"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Название</FormLabel>
-                <FormControl>
-                  <Input placeholder="Пример мероприятия" {...field} />
-                </FormControl>
+    <div className="flex flex-col gap-6">
+      <Title size="sm" text={"Создать событие"} />
+      <div className="w-96 rounded-lg border bg-card text-card-foreground shadow-sm flex flex-col space-y-1.5 p-6 flex-[1]">
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="space-y-4 mb-4"
+          >
+            <p>
+              Создайте событие, введя название, ссылку на фото, описание и дату!
+            </p>
+            <FormField
+              control={form.control}
+              name="title"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Название</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Пример мероприятия" {...field} />
+                  </FormControl>
 
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="image_url"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Ссылка на фото</FormLabel>
-                <FormControl>
-                  <Input
-                    placeholder="https://example.com/image.jpg"
-                    {...field}
-                  />
-                </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="image_url"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Ссылка на фото</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="https://example.com/image.jpg"
+                      {...field}
+                    />
+                  </FormControl>
 
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="description"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Описание</FormLabel>
-                <FormControl>
-                  <Input placeholder="Длинный текст..." {...field} />
-                </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="description"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Описание</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Длинный текст..." {...field} />
+                  </FormControl>
 
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="date_event"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Дата мероприятия</FormLabel>
-                <FormControl>
-                  <DateTimePicker {...field} />
-                </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="date_event"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Дата мероприятия</FormLabel>
+                  <FormControl>
+                    <DateTimePicker {...field} />
+                  </FormControl>
 
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <Button type="submit" className="w-full">
-            Создать событие
-          </Button>
-        </form>
-      </Form>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Button type="submit" className="w-full">
+              Создать событие
+            </Button>
+          </form>
+        </Form>
+      </div>
     </div>
   );
 };
