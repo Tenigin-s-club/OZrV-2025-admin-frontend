@@ -67,8 +67,10 @@ const CreateEventForm = () => {
     <div className="w-96 rounded-lg border bg-card text-card-foreground shadow-sm flex flex-col space-y-1.5 p-6">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 mb-4">
-          <Title size="sm" text={"Регистрация"} />
-          <p>Создайте учетную запись, введя ФИО, email и пароль!</p>
+          <Title size="sm" text={"Создать событие"} />
+          <p>
+            Создайте событие, введя название, ссылку на фото, описание и дату!
+          </p>
           <FormField
             control={form.control}
             name="title"

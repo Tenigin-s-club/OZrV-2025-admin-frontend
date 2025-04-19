@@ -3,7 +3,7 @@ import Container from "@/components/ui/container";
 
 const CreateEventPage = () => {
   return (
-    <Container className="flex items-center justify-center h-screen">
+    <Container className="items-center justify-between h-full">
       <CreateEventForm />
     </Container>
   );

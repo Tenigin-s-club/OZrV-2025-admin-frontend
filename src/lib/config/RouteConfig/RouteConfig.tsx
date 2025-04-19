@@ -9,6 +9,7 @@ import UsersPageAsync from "@/pages/UserPage/UserPage.async";
 
 import AnalyticsPageAsync from "@/pages/AnalyticsPage/AnalyticsPage.async";
 import UsersTableAdminPage from "@/pages/UsersTablePage/UsersTablePage";
+import CreateEventPage from "@/pages/CreateEventPage/CreateEventPage";
 
 const authRoutes: RouteObject[] = [
   {
@@ -42,7 +43,7 @@ export const appRoutersConfig = createBrowserRouter([
       },
       {
         path: "/events",
-        // element: <CreateEve />,
+        element: <CreateEventPage />,
       },
       {
         path: "/users/:id",
