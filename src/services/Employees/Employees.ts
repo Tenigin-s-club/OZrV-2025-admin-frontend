@@ -3,8 +3,8 @@ import { EmployeeRole, UnVerifiedUser, VerifiedUser } from "./types";
 
 export const employeesApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    getVerifiedEmployees: builder.query<VerifiedUser[], void>({
-      query: () => `/admin/verified_users`,
+    getUsers: builder.query<VerifiedUser[], void>({
+      query: () => `/auth/all`,
       providesTags: ["Employees"],
     }),
     getUnVerEmployees: builder.query<UnVerifiedUser[], void>({
@@ -45,7 +45,7 @@ export const employeesApi = baseApi.injectEndpoints({
 
 export const {
   useGetUnVerEmployeesQuery: useGetUnVerEmployees,
-  useGetVerifiedEmployeesQuery: useGetVerifiedEmployees,
+  useGetUsersQuery: useGetUsers,
   useDeleteEmployeeMutation: useDeleteEmployee,
   useConfirmEmployeeMutation: useConfirmEmployee,
 } = employeesApi;

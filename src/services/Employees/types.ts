@@ -9,7 +9,6 @@ export interface VerifiedUser {
   id: string;
   email: string;
   fio: string;
-  roles: EmployeeRole[];
 }
 
 export interface UnVerifiedUser {
