@@ -8,10 +8,8 @@ import {
   Presentation,
   ChartBarIcon,
 } from "lucide-react";
-import { useSelector } from "react-redux";
 import { showErrorNotification } from "@/lib/helpers/notification";
 import { useLogout } from "@/services/AuthByEmail/AuthByEmail";
-import { User } from "@/services/User/types";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -24,8 +22,6 @@ const TopBar = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const [logout] = useLogout();
-
-  const user = useSelector((state: { user: User | null }) => state.user);
 
   return (
     <>
@@ -52,22 +48,6 @@ const TopBar = () => {
               Аналитика
             </Button>
           </li>
-
-          {user && user.role.includes("admin") && (
-            <li>
-              <Button
-                variant={
-                  pathname === `/users` || pathname.includes("/users")
-                    ? "default"
-                    : "secondary"
-                }
-                className="min-w-[150px] w-1/6"
-                onClick={() => navigate(`/users`)}
-              >
-                <Users /> Пользователи
-              </Button>
-            </li>
-          )}
         </ul>
         <Button
           variant="secondary"

@@ -6,9 +6,10 @@ export type EmployeeRole =
   | "corporative_secretar";
 
 export interface VerifiedUser {
-  id: string;
+  id?: string;
   email: string;
   fio: string;
+  role: EmployeeRole[];
 }
 
 export interface UnVerifiedUser {
