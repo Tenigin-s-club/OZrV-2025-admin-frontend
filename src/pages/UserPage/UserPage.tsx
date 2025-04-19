@@ -1,9 +1,25 @@
+import { AppSidebar } from "@/components/shared/AppSidebar";
 import { ChatHistory } from "@/components/shared/ChatHistory";
 import Loader from "@/components/shared/Loader/Loader";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+const chats = [
+  {
+    id: "123-ased-q23-23-wa",
+    name: "test chat 1",
+    createdAt: "2025-04-18T21:55:03Z",
+  },
+  {
+    id: "123-a-fasdq3-4--wa",
+    name: "test chat 2",
+    createdAt: "2025-04-16T21:55:03Z",
+  },
+];
 
 const UserPage = () => {
   const navigate = useNavigate();
@@ -52,10 +68,26 @@ const UserPage = () => {
     );
 
   return (
-    <Container className="flex justify-between items-center flex-col">
-      <h2 className="text-3xl mb-5">История запросов пользоваля: {data.fio}</h2>
-      <ChatHistory />
-    </Container>
+    <div className="flex justify-between items-center flex-col">
+      <SidebarProvider
+        style={{
+          // @ts-ignore
+          "--sidebar-width": "20rem",
+          "--sidebar-width-mobile": "20rem",
+        }}
+      >
+        <AppSidebar items={chats} />
+        <div className="flex flex-col gap-4 w-[100%] items-center justify-between">
+          <div className="flex items-center justify-betweenb w-[100%] gap-3">
+            <SidebarTrigger />
+            <h2 className="font-bold text-xl">
+              История запросов пользоваля: {data.fio}
+            </h2>
+          </div>
+          <ChatHistory />
+        </div>
+      </SidebarProvider>
+    </div>
   );
 };
 

@@ -118,11 +118,11 @@ const chartConfig = {
     label: "Page Views",
   },
   desktop: {
-    label: "Desktop",
+    label: "Количество запросов",
     color: "hsl(var(--chart-1))",
   },
   mobile: {
-    label: "Mobile",
+    label: "Время запросов",
     color: "hsl(var(--chart-2))",
   },
 } satisfies ChartConfig;

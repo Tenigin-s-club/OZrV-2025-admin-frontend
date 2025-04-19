@@ -58,8 +58,8 @@ export function ChatHistory(props: ChatDemoProps) {
       className={cn(
         "flex justify-between z-[1000] bg-white text-[20px]",
         "flex-col",
-        "h-[75vh]",
-        "w-[60%] max-lg:w-[80%] max-md:w-[100%]"
+        "h-[80vh]",
+        "w-[100%]"
       )}
     >
       <Chat className="grow" messages={messages} />
