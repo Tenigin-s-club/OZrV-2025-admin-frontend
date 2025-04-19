@@ -40,6 +40,22 @@ export const employeesApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["UnVerEmployees", "Employees"],
     }),
+    createEvent: builder.mutation<
+      void,
+      {
+        title: string;
+        image_url: string;
+        description: string;
+        date_event: string;
+      }
+    >({
+      query: ({ title, image_url, description, date_event }) => ({
+        url: `/event/create`,
+        method: "POST",
+        body: { title, image_url, description, date_event },
+      }),
+      invalidatesTags: [],
+    }),
   }),
 });
 
@@ -48,4 +64,5 @@ export const {
   useGetVerifiedEmployeesQuery: useGetVerifiedEmployees,
   useDeleteEmployeeMutation: useDeleteEmployee,
   useConfirmEmployeeMutation: useConfirmEmployee,
+  useCreateEventMutation: useCreateEvent,
 } = employeesApi;
