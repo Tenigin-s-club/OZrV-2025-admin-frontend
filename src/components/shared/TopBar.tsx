@@ -1,6 +1,13 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "../ui/button";
-import { Users, House, Menu, LogOut, Presentation } from "lucide-react";
+import {
+  Users,
+  House,
+  Menu,
+  LogOut,
+  Presentation,
+  ChartBarIcon,
+} from "lucide-react";
 import { useSelector } from "react-redux";
 import { showErrorNotification } from "@/lib/helpers/notification";
 import { useLogout } from "@/services/AuthByEmail/AuthByEmail";
@@ -25,6 +32,16 @@ const TopBar = () => {
       <div className="max-md:hidden justify-between p-4 w-full items-center font-bold flex text-xl">
         <Link to="/">Панель администратора</Link>
         <ul className="items-center justify-center gap-2 flex ">
+          <li>
+            <Button
+              variant={pathname === "/events" ? "default" : "secondary"}
+              className="min-w-[150px] w-1/6"
+              onClick={() => navigate("/events")}
+            >
+              <ChartBarIcon />
+              События
+            </Button>
+          </li>
           <li>
             <Button
               variant={pathname === "/" ? "default" : "secondary"}
@@ -67,7 +84,7 @@ const TopBar = () => {
           Выйти
         </Button>
       </div>
-      <div className="md:hidden flex items-center justify-between py-3 md:py-5 md:block">
+      <div className=" flex items-center justify-between py-3 md:py-5 md:block">
         <div className="md:hidden">
           <DropdownMenu>
             <DropdownMenuTrigger>

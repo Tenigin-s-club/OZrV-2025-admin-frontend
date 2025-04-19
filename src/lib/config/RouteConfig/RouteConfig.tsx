@@ -41,6 +41,10 @@ export const appRoutersConfig = createBrowserRouter([
         element: <UsersTableAdminPage />,
       },
       {
+        path: "/events",
+        // element: <CreateEve />,
+      },
+      {
         path: "/users/:id",
         element: <UsersPageAsync />,
       },

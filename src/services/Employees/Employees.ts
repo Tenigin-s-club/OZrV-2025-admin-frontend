@@ -1,34 +1,26 @@
+import { Chat } from "@/types";
 import { baseApi } from "../BaseApi";
-import { EmployeeRole, UnVerifiedUser, VerifiedUser } from "./types";
+import { EmployeeRole } from "./types";
+import { User } from "../User/types";
+import { Message } from "@/components/ui/chat-message";
 
 export const employeesApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    getVerifiedEmployees: builder.query<VerifiedUser[], void>({
-      query: () => `/admin/verified_users`,
+    getUsers: builder.query<User[], void>({
+      query: () => `/auth/all`,
       providesTags: ["Employees"],
     }),
-    getUnVerEmployees: builder.query<UnVerifiedUser[], void>({
-      query: () => "/admin/unverified_users",
-      providesTags: ["UnVerEmployees"],
+    getChats: builder.query<Chat[], string>({
+      query: (userId) => `/auth/admin/chats/${userId}`,
+      providesTags: ["Employees"],
     }),
-    deleteEmployee: builder.mutation<{ success: boolean; id: number }, string>({
-      query(id) {
-        return {
-          url: `/admin/disconfirm_user/${id}`,
-          method: "DELETE",
-        };
-      },
-      // Invalidates all queries that subscribe to this Post `id` only.
-      invalidatesTags: ["Employees", "UnVerEmployees"],
+    getUserById: builder.query<User, string>({
+      query: (id: string) => `/auth/admin/user/${id}`,
     }),
-    // changeEmployeeRole: builder.mutation<VerifiedUser, EmployeeRole>({
-    //   query: (id, ...data) => ({
-    //     url: `employees/${id}/`,
-    //     method: "PATCH",
-    //     body: data,
-    //   }),
-    //   invalidatesTags: ["Employees"],
-    // }),
+    getChatById: builder.query<Message[], string>({
+      query: (id: string) => `/auth/admin/chat/${id}`,
+    }),
+
     confirmEmployee: builder.mutation<
       void,
       { id: string; roles: EmployeeRole[] }
@@ -60,9 +52,10 @@ export const employeesApi = baseApi.injectEndpoints({
 });
 
 export const {
-  useGetUnVerEmployeesQuery: useGetUnVerEmployees,
-  useGetVerifiedEmployeesQuery: useGetVerifiedEmployees,
-  useDeleteEmployeeMutation: useDeleteEmployee,
+  useGetChatsQuery: useGetChats,
+  useGetChatByIdQuery: useGetChatById,
+  useGetUserByIdQuery: useGetUserById,
+  useGetUsersQuery: useGetUsers,
   useConfirmEmployeeMutation: useConfirmEmployee,
   useCreateEventMutation: useCreateEvent,
 } = employeesApi;
