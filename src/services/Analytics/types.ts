@@ -1,11 +1,7 @@
-export interface Meeting {
-  id: string;
-  voting_datetime: string;
-  end_datetime: string;
-  place: string;
-  is_internal: true;
-  counter: string;
-  questions: Question[];
+export interface Analitica {
+  data: string;
+  requests_avg_time: number;
+  requests_count: number;
 }
 
 export interface MeetingRequest {

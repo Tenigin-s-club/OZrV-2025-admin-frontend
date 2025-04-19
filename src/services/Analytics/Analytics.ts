@@ -1,21 +1,17 @@
 import { baseApi } from "../BaseApi";
 import {
-  Meeting,
+  Analitica,
   MeetingRequest,
   MeetingStatistic,
-  MeetingStatus,
   Question,
   RequestQuestion,
 } from "./types";
 
 export const employeesApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    getMeetings: builder.query<Meeting[], MeetingStatus>({
-      query: (status) => `/analytics?status=${status}`,
-      providesTags: ["Meetings"],
-    }),
-    getMeeting: builder.query<Meeting, string>({
-      query: (id) => `/analytics/${id}`,
+    getAnalytics: builder.query<Analitica[], void>({
+      query: () => `/statistics`,
+      providesTags: ["Analytics"],
     }),
     getQuestion: builder.query<Question, string>({
       query: (id) => `/analytics/questions/${id}`,
@@ -42,9 +38,8 @@ export const employeesApi = baseApi.injectEndpoints({
 });
 
 export const {
-  useGetMeetingsQuery: useGetMeetings,
+  useGetAnalyticsQuery: useGetAnalytics ,
   useAddMeetingMutation: useAddMeeting,
-  useGetMeetingQuery: useGetMeeting,
   useAddQuestionMutation: useAddQuestionForMeeting,
   useGetQuestionQuery: useGetQuestion,
   useGetMeetingStatisticQuery: useGetMeetingStatistic,

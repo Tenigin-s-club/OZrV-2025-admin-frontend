@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const baseApi = createApi({
   reducerPath: "userApi",
-  tagTypes: ["Employees", "Meetings", "UnVerEmployees"],
+  tagTypes: ["Employees", "Analytics", "UnVerEmployees"],
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_BACKEND_API,
     credentials: "include",
