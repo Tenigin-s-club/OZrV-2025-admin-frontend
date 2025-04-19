@@ -2,9 +2,7 @@ import { AppSidebar } from "@/components/shared/AppSidebar";
 import { ChatHistory } from "@/components/shared/ChatHistory";
 import Loader from "@/components/shared/Loader/Loader";
 import { Button } from "@/components/ui/button";
-import Container from "@/components/ui/container";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 

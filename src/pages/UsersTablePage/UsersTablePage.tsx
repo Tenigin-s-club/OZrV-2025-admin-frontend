@@ -4,11 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowUpDown } from "lucide-react";
 import { ColumnDef } from "@tanstack/react-table";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  useGetUnVerEmployees,
-  useGetVerifiedEmployees,
-} from "@/services/Employees/Employees";
+import { useGetVerifiedEmployees } from "@/services/Employees/Employees";
 import Loader from "@/components/shared/Loader/Loader";
 import { roles, rolesToText } from "@/lib/helpers/roleToText";
 

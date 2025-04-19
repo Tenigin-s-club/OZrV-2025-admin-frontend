@@ -18,7 +18,7 @@ export function ChatHistory(props: ChatDemoProps) {
       id: "2",
       content:
         "Конечно! Что у вас запланировано? Могу помочь распределить задачи или напомнить о важных событиях.",
-      role: "data",
+      role: "assistant",
     },
     {
       id: "3",
@@ -33,21 +33,21 @@ export function ChatHistory(props: ChatDemoProps) {
 День – сходите в магазин, пока там меньше людей.
 Вечер – займитесь отчётом, когда будет меньше отвлекающих факторов.
 Как вам такой план?`,
-      role: "data",
+      role: "assistant",
     },
     {
-      id: "3",
+      id: "5",
       content: "Отлично! А можешь напомнить мне про звонок в 11:00?",
       role: "user",
     },
     {
-      id: "4",
+      id: "6",
       content:
         'Конечно! Напоминаю: "Позвонить другу" в 11:00. Установил уведомление. Удачного дня!',
-      role: "data",
+      role: "assistant",
     },
     {
-      id: "1",
+      id: "7",
       content: "Привет! Ты можешь помочь мне с планированием дня?",
       role: "user",
     },
@@ -62,7 +62,20 @@ export function ChatHistory(props: ChatDemoProps) {
         "w-[100%]"
       )}
     >
-      <Chat className="grow" messages={messages} />
+      <Chat
+        suggestions={[]}
+        handleSubmit={() => {}}
+        input=""
+        handleInputChange={() => {}}
+        isGenerating={false}
+        append={() => {}}
+        className="grow"
+        messages={messages.map(({ id, content, role }) => ({
+          id,
+          content,
+          role,
+        }))}
+      />
     </div>
   );
 }

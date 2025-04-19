@@ -22,12 +22,8 @@ import { Input } from "@/components/ui/input";
 
 import ExportEmployeesButton from "./ExportEmployeesButton";
 
-import { useDeleteEmployee } from "@/services/Employees/Employees";
-import { ChartColumnBig, Check, Trash2, X } from "lucide-react";
-import { useSelector } from "react-redux";
+import { ChartColumnBig } from "lucide-react";
 import { UnVerifiedUser, VerifiedUser } from "@/services/Employees/types";
-import { User } from "@/services/User/types";
-import { ConfirmEmployeeDialog } from "./ConfirmEmployeeDialog";
 import { useNavigate } from "react-router-dom";
 
 interface Props<TValue> {
@@ -36,9 +32,8 @@ interface Props<TValue> {
   isRequest: boolean;
 }
 
-function EmployeesTable<TValue>({ columns, data, isRequest }: Props<TValue>) {
+function EmployeesTable<TValue>({ columns, data }: Props<TValue>) {
   const [sorting, setSorting] = useState<SortingState>([]);
-  const [deleteEmployee] = useDeleteEmployee();
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const navigate = useNavigate();
   const table = useReactTable({
@@ -54,10 +49,6 @@ function EmployeesTable<TValue>({ columns, data, isRequest }: Props<TValue>) {
       columnFilters,
     },
   });
-
-  const deleteFunc = async (id: string) => {
-    deleteEmployee(id);
-  };
 
   return (
     <div>
@@ -99,7 +90,7 @@ function EmployeesTable<TValue>({ columns, data, isRequest }: Props<TValue>) {
           </TableHeader>
           <TableBody>
             {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row, id) => (
+              table.getRowModel().rows.map((row) => (
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
